@@ -19,7 +19,8 @@ class Game {
   }
 
   private async start() {
-    this.physics.showDebug = true
+    this.viewController.showStats = true
+    this.physics.showDebug = false
     
     const spawnPoint = this.world.findActorByType(SpawnPoint)
     spawnPoint.position.y += 1

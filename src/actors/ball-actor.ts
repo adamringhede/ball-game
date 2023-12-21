@@ -4,8 +4,8 @@ import {
   MeshComponent
 } from "@hology/core/gameplay/actors";
 import { AxisInput } from "@hology/core/gameplay/input";
-import { NodeShaderMaterial, rgb, rgba, select, standardMaterial, varyingAttributes } from "@hology/core/shader-nodes";
-import { ArrowHelper, Euler, Mesh, MeshPhysicalMaterial, SphereGeometry, Vector3 } from "three";
+import { NodeShaderMaterial, rgba, select, standardMaterial, varyingAttributes } from "@hology/core/shader-nodes";
+import { ArrowHelper, Euler, MeshPhysicalMaterial, SphereGeometry, Vector3 } from "three";
 import { clamp } from "three/src/math/MathUtils";
 
 
@@ -21,7 +21,7 @@ class BallActor extends BaseActor {
 
   //private camera = attach(ThirdPartyCameraComponent)
   private mesh = attach(MeshComponent, {
-    mesh: new PhysicalShapeMesh(new SphereGeometry(.2, 50, 50), ballMaterial, new SphereCollisionShape(0.2)),
+    object: new PhysicalShapeMesh(new SphereGeometry(.2, 50, 50), ballMaterial, new SphereCollisionShape(0.2)),
     bodyType: PhysicsBodyType.dynamic,
     mass: 2,
     friction: .5,
@@ -52,6 +52,13 @@ class BallActor extends BaseActor {
     
     const linvel = new Vector3()
     const rotation = new Euler()
+    
+    let hasWorldContact = false
+    this.physicsSystem.onHasContactChanged(this).subscribe(hasContact => {
+      hasWorldContact = hasContact
+    })
+
+  
     this.physicsSystem.beforeStep.subscribe(deltaTime => {
       //this.rotation.y += this.axisInput.horizontal * deltaTime
       //this.physicsSystem.updateActorTransform(this)
@@ -85,14 +92,14 @@ class BallActor extends BaseActor {
       }
       rightDirection.crossVectors(currentDirection, up)
 
-      this.container.parent.add(rightArrow)
+      this.object.parent.add(rightArrow)
       rightArrow.setDirection(rightDirection)
       rightArrow.position.copy(this.position)
       rightArrow.setLength(.9)
       rightArrow.setColor(0xff0000)
       
 
-      this.container.parent.add(forwardArrow)
+      this.object.parent.add(forwardArrow)
       forwardArrow.setDirection(currentDirection)
       forwardArrow.position.copy(this.position)
       forwardArrow.setLength(.9)
@@ -117,49 +124,33 @@ class BallActor extends BaseActor {
         .multiplyScalar(this.impulseMagnitude * 10 * deltaTime * this.axisInput.vertical)
         //.add(new Vector3().copy(rightDirection).multiplyScalar(this.impulseMagnitude * deltaTime * this.axisInput.horizontal))
       const rightImpulse = new Vector3().copy(rightDirection).multiplyScalar(0 * deltaTime * this.axisInput.horizontal);
-
       
       // apply force in the direction of rotation 
 
-
-      this.physicsSystem.applyImpulse(this, impulse)
-      this.physicsSystem.setLinearDamping(this, 1)
-      this.physicsSystem.setAngularDamping(this, 1)
-
-
-      // Rotate using input rather than using forces
+      if (hasWorldContact) {
+        this.physicsSystem.applyImpulse(this, impulse)
+        // A low linear damping is hard to control
+        this.physicsSystem.setLinearDamping(this, .2)
+        this.physicsSystem.setAngularDamping(this, 1)
   
-
-      
-
-      // Probably shouldn't be possible to apply force while in the air
-
-      this.physicsSystem.getLinearVelocity(this, linvel)
-      linvel.x = clamp(linvel.x, -maxlinvel.x, maxlinvel.x)
-      linvel.y = clamp(linvel.y, -maxlinvel.y, maxlinvel.y)
-      linvel.z = clamp(linvel.z, -maxlinvel.z, maxlinvel.z)
-      //this.physicsSystem.setLinearVelocity(this, linvel)
-
-
-      this.physicsSystem.getAngularVelocity(this, angvel)
-      angvel.x = clamp(angvel.x, -maxangvel.x, maxangvel.x)
-      angvel.y = clamp(angvel.y, -maxangvel.y, maxangvel.y)
-      angvel.z = clamp(angvel.z, -maxangvel.z, maxangvel.z)
-      this.physicsSystem.setAngularVelocity(this, angvel)
-
-      //console.log(ballDirection)
+        this.physicsSystem.getLinearVelocity(this, linvel)
+        linvel.x = clamp(linvel.x, -maxlinvel.x, maxlinvel.x)
+        linvel.y = clamp(linvel.y, -maxlinvel.y, maxlinvel.y)
+        linvel.z = clamp(linvel.z, -maxlinvel.z, maxlinvel.z)
+        //this.physicsSystem.setLinearVelocity(this, linvel)
+  
+        this.physicsSystem.getAngularVelocity(this, angvel)
+        angvel.x = clamp(angvel.x, -maxangvel.x, maxangvel.x)
+        angvel.y = clamp(angvel.y, -maxangvel.y, maxangvel.y)
+        angvel.z = clamp(angvel.z, -maxangvel.z, maxangvel.z)
+        this.physicsSystem.setAngularVelocity(this, angvel)
+  
+        //console.log(ballDirection)
+      }
 
       this.direction.copy(currentDirection)
 
     })
-  }
-
-  moveForward(active: boolean) {
-    console.log("enable move forward", active)
-    
-    // TODO Figure out if using kinematic or dynamic is best
-
-    
   }
 
 }

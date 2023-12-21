@@ -12,11 +12,11 @@
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.23.0",
     "@dimforge/rapier3d-compat": "^0.11.2",
-    "@hology/core": "file:../../code/hology/packages/core/hology-core-0.0.15.tgz",
-    "@types/three": "^0.138.0",
+    "@hology/core": "file:../../code/hology/packages/core/hology-core-0.0.23.tgz",
+    "@types/three": "^0.139.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.138.3"
+    "three": "^0.139.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
