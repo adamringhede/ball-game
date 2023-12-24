@@ -1,0 +1,98 @@
+{
+  "name": "Candy Cane Stripes (copy)",
+  "type": "material",
+  "material": {
+    "type": "standard",
+    "params": {
+      "metalness": 0,
+      "opacity": 1
+    },
+    "side": 0,
+    "shaderParams": {
+      "color": {
+        "type": 10,
+        "value": "#ffffff"
+      },
+      "roughness": {
+        "type": 1,
+        "value": "0.4"
+      },
+      "metalness": {
+        "type": 1,
+        "value": 0.05
+      },
+      "map": {
+        "type": 2,
+        "value": "9aeca8e8-4bc8-482c-8faf-385e4e890d32"
+      },
+      "lightMap": {
+        "type": 2
+      },
+      "lightMapIntensity": {
+        "type": 1
+      },
+      "aoMap": {
+        "type": 2
+      },
+      "aoMapIntensity": {
+        "type": 1
+      },
+      "emissive": {
+        "type": 10,
+        "value": "#000000"
+      },
+      "emissiveIntensity": {
+        "type": 1
+      },
+      "emissiveMap": {
+        "type": 2
+      },
+      "bumpMap": {
+        "type": 2
+      },
+      "bumpScale": {
+        "type": 1
+      },
+      "normalMap": {
+        "type": 2
+      },
+      "normalScale": {
+        "type": 6,
+        "value": [
+          0,
+          0
+        ]
+      },
+      "displacementMap": {
+        "type": 2
+      },
+      "displacementScale": {
+        "type": 1
+      },
+      "displacementBias": {
+        "type": 1
+      },
+      "roughnessMap": {
+        "type": 2
+      },
+      "metalnessMap": {
+        "type": 2
+      },
+      "alphaMap": {
+        "type": 2
+      },
+      "envMap": {
+        "type": 2,
+        "value": "9aeca8e8-4bc8-482c-8faf-385e4e890d32"
+      },
+      "envMapIntensity": {
+        "type": 1,
+        "value": "1"
+      },
+      "refractionRatio": {
+        "type": 1
+      }
+    }
+  },
+  "id": "9aecb1ae-de0c-4e76-9913-34361264a1fa"
+}

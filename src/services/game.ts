@@ -1,6 +1,6 @@
 import { PhysicsSystem, Service, ViewController, World, inject } from "@hology/core/gameplay"
 import BallActor from "../actors/ball-actor"
-import { CameraActor, SpawnPoint } from "@hology/core/gameplay/actors"
+import { CameraActor, SpawnPoint, TriggerVolume } from "@hology/core/gameplay/actors"
 import PlayerController from "./player-controller"
 import { Vector3 } from "three"
 import { lerp } from "three/src/math/MathUtils"
@@ -19,7 +19,7 @@ class Game {
   }
 
   private async start() {
-    this.viewController.showStats = true
+    this.viewController.showStats = false
     this.physics.showDebug = false
     
     const spawnPoint = this.world.findActorByType(SpawnPoint)
@@ -28,12 +28,20 @@ class Game {
     const camera = await this.world.spawnActor(CameraActor)
     this.viewController.setCamera(camera.camera.instance)
     
-    const ball = await this.world.spawnActor(BallActor, spawnPoint.position)
+    const ball = await this.world.spawnActor(BallActor, spawnPoint.position, spawnPoint.rotation)
+    
+    
+    const goal = await this.world.findActorByType(TriggerVolume)
 
+    goal.trigger.onBeginOverlapWithActor(ball).subscribe(() => {
+      console.log("Game won!")
+
+      ball.moveTo(spawnPoint.position)
+    })
 
     const ballDirection = new Vector3()
     const ballForward = new Vector3()
-    ball.afterMove.subscribe(deltaTime => {
+    this.viewController.onLateUpdate().subscribe(deltaTime => {
       // Delta time could be used to move softly
       
 

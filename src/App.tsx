@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const runtime = initiateGame(Game, {
       element: containerRef.current as HTMLElement, 
-      sceneName: 'demo', 
+      sceneName: 'christmas', 
       dataDir: 'data', 
       shaders,
       actors

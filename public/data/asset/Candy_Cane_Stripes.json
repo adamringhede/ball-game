@@ -1,0 +1,24 @@
+{
+  "name": "Candy Cane Stripes",
+  "type": "material",
+  "material": {
+    "type": "shader",
+    "params": {
+      "metalness": 0,
+      "opacity": 1
+    },
+    "side": 0,
+    "shaderParams": {
+      "color": {
+        "type": 10,
+        "value": "#ffffff"
+      },
+      "map": {
+        "type": 2,
+        "value": "9aeca8e8-4bc8-482c-8faf-385e4e890d32"
+      }
+    },
+    "shader": "StripeShader"
+  },
+  "id": "9aeca918-b48e-4e32-b8d8-cb590aee65e5"
+}

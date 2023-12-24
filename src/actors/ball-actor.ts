@@ -1,16 +1,22 @@
 import { PhysicalShapeMesh, SphereCollisionShape } from "@hology/core";
-import { Actor, BaseActor, PhysicsBodyType, PhysicsSystem, attach, inject } from "@hology/core/gameplay";
+import { Actor, BaseActor, PhysicsBodyType, PhysicsSystem, World, attach, inject } from "@hology/core/gameplay";
 import {
   MeshComponent
 } from "@hology/core/gameplay/actors";
 import { AxisInput } from "@hology/core/gameplay/input";
 import { NodeShaderMaterial, rgba, select, standardMaterial, varyingAttributes } from "@hology/core/shader-nodes";
-import { ArrowHelper, Euler, MeshPhysicalMaterial, SphereGeometry, Vector3 } from "three";
+import { ArrowHelper, Euler, MeshPhongMaterial, MeshPhysicalMaterial, SphereGeometry, Vector3 } from "three";
+import * as THREE from 'three'
 import { clamp } from "three/src/math/MathUtils";
 
 
 const ballMaterial = new NodeShaderMaterial({
-  color: standardMaterial({ emissive: select(varyingAttributes.position.y().lt(0), rgba(0xffff00, 1), rgba(0x00ffff, 1)).rgb()})
+  color: standardMaterial({ 
+    emissive: select(varyingAttributes.position.y().lt(0), rgba(0xffff00, 1), rgba(0x00ffff, 1)).rgb()})
+})
+const ballMaterialChristmas = new NodeShaderMaterial({
+  color: standardMaterial({ 
+    emissive: select(varyingAttributes.position.y().lt(0), rgba(0x215407, 1), rgba(0x610a04, 1)).rgb()})
 })
 const yellow = new MeshPhysicalMaterial({ color: 0xffff00 })
 
@@ -18,9 +24,10 @@ const yellow = new MeshPhysicalMaterial({ color: 0xffff00 })
 class BallActor extends BaseActor {
   private maxSpeed = 20
   private impulseMagnitude = 10
+  private world = inject(World)
 
   //private camera = attach(ThirdPartyCameraComponent)
-  private mesh = attach(MeshComponent, {
+  private mesh = attach(MeshComponent<PhysicalShapeMesh>, {
     object: new PhysicalShapeMesh(new SphereGeometry(.2, 50, 50), ballMaterial, new SphereCollisionShape(0.2)),
     bodyType: PhysicsBodyType.dynamic,
     mass: 2,
@@ -34,6 +41,30 @@ class BallActor extends BaseActor {
   public readonly direction = new Vector3() 
 
   onInit(): void | Promise<void> {
+    const textureLoader = new THREE.TextureLoader()
+    const ballTexture = textureLoader.load('/christmas-ball.png')
+    const cubeTextureLoader = new THREE.CubeTextureLoader()
+    const environmentMap = cubeTextureLoader.load([
+      '/environmentMaps/0/px.png',
+      '/environmentMaps/0/nx.png',
+      '/environmentMaps/0/py.png',
+      '/environmentMaps/0/ny.png',
+      '/environmentMaps/0/pz.png',
+      '/environmentMaps/0/nz.png'
+  ])
+
+
+
+
+    // I need some env map to make the specular highlights look realistic
+
+    // A solid color looks kind of bad
+    const redColor  = 0xe30707
+    this.mesh.object.material = new MeshPhysicalMaterial({color: 0xffffff, map: ballTexture, metalness: .3, roughness: .1, envMap: environmentMap, envMapIntensity: 0.15})
+    this.mesh.object.material.onBeforeCompile = (shader) => {
+      console.log(shader.fragmentShader)
+    }
+
     const angvel = new Vector3()
     const maxlinvel = new Vector3(1,10,1).multiplyScalar(this.maxSpeed)
     const maxangvel = new Vector3(1,1,1).multiplyScalar(10)
@@ -45,6 +76,7 @@ class BallActor extends BaseActor {
     const impulse = new Vector3()
     const up = new Vector3(0,1,0)
 
+    const showArrows = false
     const rightArrow = new ArrowHelper()
     const forwardArrow = new ArrowHelper()
 
@@ -84,7 +116,7 @@ class BallActor extends BaseActor {
 
          
       currentDirection
-        .set(0,0,1)
+        .set(0,0,-1)
         .applyEuler(rotation)
 
       if (currentSpeed < 0.1) {
@@ -92,18 +124,21 @@ class BallActor extends BaseActor {
       }
       rightDirection.crossVectors(currentDirection, up)
 
-      this.object.parent.add(rightArrow)
-      rightArrow.setDirection(rightDirection)
-      rightArrow.position.copy(this.position)
-      rightArrow.setLength(.9)
-      rightArrow.setColor(0xff0000)
-      
+      if (showArrows) {
+        this.object.parent.add(rightArrow)
+        rightArrow.setDirection(rightDirection)
+        rightArrow.position.copy(this.position)
+        rightArrow.setLength(.9)
+        rightArrow.setColor(0xff0000)
+        
+  
+        this.object.parent.add(forwardArrow)
+        forwardArrow.setDirection(currentDirection)
+        forwardArrow.position.copy(this.position)
+        forwardArrow.setLength(.9)
+        forwardArrow.setColor(0x0000ff)
+      }
 
-      this.object.parent.add(forwardArrow)
-      forwardArrow.setDirection(currentDirection)
-      forwardArrow.position.copy(this.position)
-      forwardArrow.setLength(.9)
-      forwardArrow.setColor(0x0000ff)
       
 
       //const requestedTorqueImpulse = new Vector3(this.axisInput.vertical * deltaTime, 0, this.axisInput.horizontal * deltaTime)
@@ -118,16 +153,19 @@ class BallActor extends BaseActor {
       // Not sure if this approach is very good
    
 
-      
+      const contactFactor = hasWorldContact ? 1 : 0
+
+      // Could make it possible to move in the air but not increase speed beyond the speed you had when losing contact
+
       impulse
         .copy(currentDirection)
-        .multiplyScalar(this.impulseMagnitude * 10 * deltaTime * this.axisInput.vertical)
+        .multiplyScalar(this.impulseMagnitude * 10 * deltaTime * this.axisInput.vertical * contactFactor)
         //.add(new Vector3().copy(rightDirection).multiplyScalar(this.impulseMagnitude * deltaTime * this.axisInput.horizontal))
       const rightImpulse = new Vector3().copy(rightDirection).multiplyScalar(0 * deltaTime * this.axisInput.horizontal);
       
       // apply force in the direction of rotation 
 
-      if (hasWorldContact) {
+      //if (hasWorldContact) {
         this.physicsSystem.applyImpulse(this, impulse)
         // A low linear damping is hard to control
         this.physicsSystem.setLinearDamping(this, .2)
@@ -146,11 +184,16 @@ class BallActor extends BaseActor {
         this.physicsSystem.setAngularVelocity(this, angvel)
   
         //console.log(ballDirection)
-      }
+      //}
 
       this.direction.copy(currentDirection)
 
     })
+  }
+
+  public moveTo(position: Vector3) {
+    this.position.copy(position)
+    this.physicsSystem.updateActorTransform(this)
   }
 
 }
