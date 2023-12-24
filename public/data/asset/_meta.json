@@ -11,6 +11,21 @@
     "id": "9aec9871-1216-4e4b-8270-176350d30583",
     "name": "Snow Ground"
   },
+  "9aecef34-18a0-46b8-805d-4c08e1d85745": {
+    "id": "9aecef34-18a0-46b8-805d-4c08e1d85745",
+    "name": "candyCane",
+    "path": ""
+  },
+  "9aecef33-da16-43d2-a130-57a3a8fae0d0": {
+    "id": "9aecef33-da16-43d2-a130-57a3a8fae0d0",
+    "name": "candyCaneMint",
+    "path": ""
+  },
+  "9aecf708-440c-4782-9623-a14d73a80933": {
+    "id": "9aecf708-440c-4782-9623-a14d73a80933",
+    "name": "coin",
+    "path": ""
+  },
   "9aecdf1c-65da-4c0a-abcc-d748897af555": {
     "id": "9aecdf1c-65da-4c0a-abcc-d748897af555",
     "name": "fence-damaged",
@@ -26,6 +41,10 @@
     "name": "fence",
     "path": ""
   },
+  "9aecf22a-25ae-4497-bd39-9a3d73f5dfbc": {
+    "id": "9aecf22a-25ae-4497-bd39-9a3d73f5dfbc",
+    "name": "green wrapper"
+  },
   "9aece310-904e-4ee8-afbf-d580e134fbd4": {
     "id": "9aece310-904e-4ee8-afbf-d580e134fbd4",
     "name": "hay-bale-bundled",
@@ -36,14 +55,76 @@
     "name": "hay-bale",
     "path": ""
   },
+  "9aecf34a-8852-4a68-a4d5-10e6ad415166": {
+    "id": "9aecf34a-8852-4a68-a4d5-10e6ad415166",
+    "name": "mat rock"
+  },
   "9aece332-95d6-4b79-b3ce-ccee65db78c9": {
     "id": "9aece332-95d6-4b79-b3ce-ccee65db78c9",
     "name": "pine",
     "path": ""
   },
+  "9aecef0a-c752-4ed0-8ac2-8f76766807ec": {
+    "id": "9aecef0a-c752-4ed0-8ac2-8f76766807ec",
+    "name": "present",
+    "path": ""
+  },
+  "9aecef0a-7cde-434f-9f2a-496a49c70681": {
+    "id": "9aecef0a-7cde-434f-9f2a-496a49c70681",
+    "name": "presentGreen",
+    "path": ""
+  },
+  "9aecef0a-4a3e-496d-9080-4e84e2963e40": {
+    "id": "9aecef0a-4a3e-496d-9080-4e84e2963e40",
+    "name": "presentGreenLow",
+    "path": ""
+  },
+  "9aecef0a-20c2-42f3-a5f5-53ef53f83aaa": {
+    "id": "9aecef0a-20c2-42f3-a5f5-53ef53f83aaa",
+    "name": "presentGreenRound",
+    "path": ""
+  },
+  "9aecef09-e602-40a5-9d96-28e990bbdbee": {
+    "id": "9aecef09-e602-40a5-9d96-28e990bbdbee",
+    "name": "presentLow",
+    "path": ""
+  },
+  "9aecef09-af84-4b51-9cbd-47654ba5a669": {
+    "id": "9aecef09-af84-4b51-9cbd-47654ba5a669",
+    "name": "presentRound",
+    "path": ""
+  },
+  "9aecf275-7f72-4996-94d9-373a758df7a7": {
+    "id": "9aecf275-7f72-4996-94d9-373a758df7a7",
+    "name": "red ribbon"
+  },
+  "9aeceeec-1adc-4578-9efe-e9771980650e": {
+    "id": "9aeceeec-1adc-4578-9efe-e9771980650e",
+    "name": "rockFormationLarge",
+    "path": ""
+  },
+  "9aeceeeb-d928-45c8-897e-ca831a57157f": {
+    "id": "9aeceeeb-d928-45c8-897e-ca831a57157f",
+    "name": "rockFormationMedium",
+    "path": ""
+  },
+  "9aeceeeb-acb4-4354-8df0-6b2aa3267dc6": {
+    "id": "9aeceeeb-acb4-4354-8df0-6b2aa3267dc6",
+    "name": "rockFormationSmall",
+    "path": ""
+  },
   "9aeca8e8-4bc8-482c-8faf-385e4e890d32": {
     "id": "9aeca8e8-4bc8-482c-8faf-385e4e890d32",
     "name": "stripes",
+    "path": ""
+  },
+  "9aecf176-9a7a-49ce-939f-d6264077932f": {
+    "id": "9aecf176-9a7a-49ce-939f-d6264077932f",
+    "name": "white"
+  },
+  "9aecee5a-693e-4e63-97e9-c983ba930c99": {
+    "id": "9aecee5a-693e-4e63-97e9-c983ba930c99",
+    "name": "wreath",
     "path": ""
   }
 }

@@ -6,6 +6,7 @@ import shaders from './shaders'
 import actors from './actors'
 import Game from './services/game';
 
+
 function App() {
   const containerRef = createRef<HTMLDivElement>()
   useEffect(() => {
@@ -21,6 +22,9 @@ function App() {
   return (
     <div className="App">
       <div ref={containerRef}></div>
+      <a href="https://hology.app" target='_blank'>
+        <img style={{position: 'absolute', zIndex: 5, left: '40px', bottom: '0px'}} width="180" src="/madewithhology.png" alt="made with hology engine" />
+      </a>
     </div>
   );
 }

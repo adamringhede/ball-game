@@ -1,0 +1,10 @@
+{
+  "name": "candyCaneMint",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecef33-da16-43d2-a130-57a3a8fae0d0",
+  "fileKey": "candyCaneMint.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_holiday-kit/Models/GLTF format/candyCaneMint.glb"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "presentRound",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecef09-af84-4b51-9cbd-47654ba5a669",
+  "fileKey": "presentRound.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_holiday-kit/Models/GLTF format/presentRound.glb",
+  "mesh": {},
+  "materialAssignments": [
+    {
+      "color": "#ffffff",
+      "materialId": "9aecf176-9a7a-49ce-939f-d6264077932f",
+      "name": "_defaultMat"
+    },
+    {
+      "color": "#ff5334",
+      "materialId": "9aecf275-7f72-4996-94d9-373a758df7a7",
+      "name": "ribbon"
+    }
+  ]
+}

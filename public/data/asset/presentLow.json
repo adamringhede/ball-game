@@ -1,0 +1,28 @@
+{
+  "name": "presentLow",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecef09-e602-40a5-9d96-28e990bbdbee",
+  "fileKey": "presentLow.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_holiday-kit/Models/GLTF format/presentLow.glb",
+  "mesh": {},
+  "materialAssignments": [
+    {
+      "color": "#ffffff",
+      "materialId": "9aecf176-9a7a-49ce-939f-d6264077932f",
+      "name": "packageWhite"
+    },
+    {
+      "color": "#ff5334",
+      "materialId": "9aecf275-7f72-4996-94d9-373a758df7a7",
+      "name": "ribbon"
+    },
+    {
+      "color": "#ffffff",
+      "materialId": "9aecf176-9a7a-49ce-939f-d6264077932f",
+      "name": "_defaultMat"
+    }
+  ]
+}

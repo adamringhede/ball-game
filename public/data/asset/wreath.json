@@ -1,0 +1,10 @@
+{
+  "name": "wreath",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecee5a-693e-4e63-97e9-c983ba930c99",
+  "fileKey": "wreath.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_holiday-kit/Models/GLTF format/wreath.glb"
+}

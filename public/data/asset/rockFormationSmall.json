@@ -1,0 +1,24 @@
+{
+  "name": "rockFormationSmall",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aeceeeb-acb4-4354-8df0-6b2aa3267dc6",
+  "fileKey": "rockFormationSmall.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_holiday-kit/Models/GLTF format/rockFormationSmall.glb",
+  "mesh": {},
+  "receiveShadow": false,
+  "materialAssignments": [
+    {
+      "color": "#9fb0c9",
+      "materialId": "9aecf34a-8852-4a68-a4d5-10e6ad415166",
+      "name": "stone"
+    },
+    {
+      "color": "#cefdfd",
+      "materialId": "9aec9871-1216-4e4b-8270-176350d30583",
+      "name": "snow"
+    }
+  ]
+}

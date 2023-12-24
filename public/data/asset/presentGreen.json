@@ -1,0 +1,23 @@
+{
+  "name": "presentGreen",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecef0a-7cde-434f-9f2a-496a49c70681",
+  "fileKey": "presentGreen.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_holiday-kit/Models/GLTF format/presentGreen.glb",
+  "mesh": {},
+  "materialAssignments": [
+    {
+      "color": "#29ab9e",
+      "materialId": "9aecf22a-25ae-4497-bd39-9a3d73f5dfbc",
+      "name": "leaves"
+    },
+    {
+      "color": "#ff5334",
+      "materialId": "9aecf275-7f72-4996-94d9-373a758df7a7",
+      "name": "ribbon"
+    }
+  ]
+}

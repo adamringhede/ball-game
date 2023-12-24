@@ -1,0 +1,10 @@
+{
+  "name": "coin",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecf708-440c-4782-9623-a14d73a80933",
+  "fileKey": "coin.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_mini-dungeon (2)/Models/GLB format/coin.glb"
+}
