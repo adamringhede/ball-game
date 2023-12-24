@@ -1,0 +1,10 @@
+{
+  "name": "hay-bale",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aece30a-50f8-4cdb-82d2-521362187b7f",
+  "fileKey": "hay-bale.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_graveyard-kit/Models/GLB format/hay-bale.glb"
+}

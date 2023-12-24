@@ -191,6 +191,10 @@ class BallActor extends BaseActor {
     })
   }
 
+  public cancelMomentum() {
+    this.physicsSystem.setLinearVelocity(this, new Vector3())
+  }
+
   public moveTo(position: Vector3) {
     this.position.copy(position)
     this.physicsSystem.updateActorTransform(this)

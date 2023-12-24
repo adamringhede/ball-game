@@ -1,0 +1,10 @@
+{
+  "name": "fence-damaged",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aecdf1c-65da-4c0a-abcc-d748897af555",
+  "fileKey": "fence-damaged.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_graveyard-kit/Models/GLB format/fence-damaged.glb"
+}

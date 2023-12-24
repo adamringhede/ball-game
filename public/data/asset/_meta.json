@@ -11,6 +11,36 @@
     "id": "9aec9871-1216-4e4b-8270-176350d30583",
     "name": "Snow Ground"
   },
+  "9aecdf1c-65da-4c0a-abcc-d748897af555": {
+    "id": "9aecdf1c-65da-4c0a-abcc-d748897af555",
+    "name": "fence-damaged",
+    "path": ""
+  },
+  "9aecdf1b-ad8e-4897-95a3-fa5dfed9c986": {
+    "id": "9aecdf1b-ad8e-4897-95a3-fa5dfed9c986",
+    "name": "fence-gate",
+    "path": ""
+  },
+  "9aecdf1b-579e-403c-ac13-297a6962b547": {
+    "id": "9aecdf1b-579e-403c-ac13-297a6962b547",
+    "name": "fence",
+    "path": ""
+  },
+  "9aece310-904e-4ee8-afbf-d580e134fbd4": {
+    "id": "9aece310-904e-4ee8-afbf-d580e134fbd4",
+    "name": "hay-bale-bundled",
+    "path": ""
+  },
+  "9aece30a-50f8-4cdb-82d2-521362187b7f": {
+    "id": "9aece30a-50f8-4cdb-82d2-521362187b7f",
+    "name": "hay-bale",
+    "path": ""
+  },
+  "9aece332-95d6-4b79-b3ce-ccee65db78c9": {
+    "id": "9aece332-95d6-4b79-b3ce-ccee65db78c9",
+    "name": "pine",
+    "path": ""
+  },
   "9aeca8e8-4bc8-482c-8faf-385e4e890d32": {
     "id": "9aeca8e8-4bc8-482c-8faf-385e4e890d32",
     "name": "stripes",

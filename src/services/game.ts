@@ -35,9 +35,13 @@ class Game {
 
     goal.trigger.onBeginOverlapWithActor(ball).subscribe(() => {
       console.log("Game won!")
-
-      ball.moveTo(spawnPoint.position)
+      setTimeout(() => respawn(), 500)
     })
+
+    function respawn() {
+      ball.moveTo(spawnPoint.position)
+      ball.cancelMomentum()
+    }
 
     const ballDirection = new Vector3()
     const ballForward = new Vector3()
@@ -62,6 +66,10 @@ class Game {
       
 
       // rotate towards the opposite of the rolling direction
+
+      if (ball.position.y < -10) {
+        respawn()
+      }
 
     })
 

@@ -1,0 +1,10 @@
+{
+  "name": "pine",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aece332-95d6-4b79-b3ce-ccee65db78c9",
+  "fileKey": "pine.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_graveyard-kit/Models/GLB format/pine.glb"
+}
