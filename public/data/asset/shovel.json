@@ -1,0 +1,10 @@
+{
+  "name": "shovel",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aed9197-aa58-466f-b611-6bde0635058a",
+  "fileKey": "shovel.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_graveyard-kit/Models/GLB format/shovel.glb"
+}

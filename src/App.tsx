@@ -24,8 +24,8 @@ function App() {
       <div ref={containerRef}></div>
       <a href="https://hology.app" target='_blank'>
         <img style={{position: 'absolute', zIndex: 5, left: '40px', bottom: '0px'}} width="180" src="madewithhology.png" alt="made with hology engine" />
-        <img style={{position: 'absolute', zIndex: 5, right: '40px', bottom: '0px'}} width="180" src="movement.png" alt="movement kyes" />
       </a>
+      <img style={{position: 'absolute', zIndex: 5, right: '40px', bottom: '0px'}} width="180" src="movement.png" alt="movement kyes" />
     </div>
   );
 }
