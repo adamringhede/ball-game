@@ -90,12 +90,13 @@ class BallActor extends BaseActor {
       hasWorldContact = hasContact
     })
 
+    const sensitivity = 1.8
   
     this.physicsSystem.beforeStep.subscribe(deltaTime => {
       //this.rotation.y += this.axisInput.horizontal * deltaTime
       //this.physicsSystem.updateActorTransform(this)
 
-      rotation.y += deltaTime * -this.axisInput.horizontal * 3
+      rotation.y += deltaTime * -this.axisInput.horizontal * sensitivity
       //this.physicsSystem.setRotationY(this, this.rotation.y)
       
 
