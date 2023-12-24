@@ -42,15 +42,15 @@ class BallActor extends BaseActor {
 
   onInit(): void | Promise<void> {
     const textureLoader = new THREE.TextureLoader()
-    const ballTexture = textureLoader.load('/christmas-ball.png')
+    const ballTexture = textureLoader.load('christmas-ball.png')
     const cubeTextureLoader = new THREE.CubeTextureLoader()
     const environmentMap = cubeTextureLoader.load([
-      '/environmentMaps/0/px.png',
-      '/environmentMaps/0/nx.png',
-      '/environmentMaps/0/py.png',
-      '/environmentMaps/0/ny.png',
-      '/environmentMaps/0/pz.png',
-      '/environmentMaps/0/nz.png'
+      'environmentMaps/0/px.png',
+      'environmentMaps/0/nx.png',
+      'environmentMaps/0/py.png',
+      'environmentMaps/0/ny.png',
+      'environmentMaps/0/pz.png',
+      'environmentMaps/0/nz.png'
   ])
 
 
