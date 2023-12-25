@@ -36,6 +36,7 @@ class Game {
     
     
     const goal = await this.world.findActorByType(TriggerVolume)
+    let finished = false
 
     const storedBestTime = localStorage.getItem('besttime')
     if (storedBestTime != null && !isNaN(parseFloat(storedBestTime))) {
@@ -47,13 +48,15 @@ class Game {
         this.bestTime.value = this.currentTime.value
         localStorage.setItem('besttime', this.bestTime.value.toString())
       }
-      setTimeout(() => respawn(), 500)
+      finished = true
+      setTimeout(() => respawn(), 600)
     })
 
     const respawn = () => {
       ball.moveTo(spawnPoint.position)
       ball.cancelMomentum()
       this.currentTime.value = null
+      finished = false
     }
 
     // Need to start current time
@@ -69,7 +72,7 @@ class Game {
       const distanceFromSpawn = spawnPoint.position.distanceTo(ball.position)
       if (distanceFromSpawn > 2 && this.currentTime.value == null) {
         this.currentTime.value = 0
-      } else if (this.currentTime.value != null) {
+      } else if (this.currentTime.value != null && !finished) {
         this.currentTime.value += deltaTime
       }
 
