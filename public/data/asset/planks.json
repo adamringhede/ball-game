@@ -1,0 +1,10 @@
+{
+  "name": "planks",
+  "path": "",
+  "type": "mesh",
+  "collisionDetection": true,
+  "id": "9aedacdd-106e-43ed-8275-e79151db1029",
+  "fileKey": "planks.glb",
+  "fileFormat": "glb",
+  "sourceFile": "/Users/adamringhede/Downloads/kenney_fantasy-town-kit/Models/GLTF format/planks.glb"
+}
