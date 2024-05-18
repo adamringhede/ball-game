@@ -13,8 +13,8 @@
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.23.0",
     "@dimforge/rapier3d-compat": "^0.11.2",
-    "@hology/core": "file:../hology/packages/core/hology-core-0.0.31.tgz",
-    "@hology/react": "file:../hology/packages/react/hology-react-0.0.1.tgz",
+    "@hology/core": "^0.0.32",
+    "@hology/react": "^0.0.2",
     "@preact/signals-react": "^2.0.0",
     "@types/three": "^0.139.0",
     "react": "^18.2.0",
