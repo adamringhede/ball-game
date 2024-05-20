@@ -12,7 +12,7 @@ import { clamp } from "three/src/math/MathUtils";
 
 const ballMaterial = new NodeShaderMaterial({
   color: standardMaterial({ 
-    emissive: select(varyingAttributes.position.y().lt(0), rgba(0xffff00, 1), rgba(0x00ffff, 1)).rgb()})
+    emissive: select(varyingAttributes.position.y().lt(0), rgba(0x0000ff, 1), rgba(0x00ffff, 1)).rgb()})
 })
 const ballMaterialChristmas = new NodeShaderMaterial({
   color: standardMaterial({ 

@@ -6,9 +6,46 @@ import shaders from './shaders'
 import actors from './actors'
 import Game from './services/game';
 import { effect } from '@preact/signals-react';
+import { HologyScene, useService } from '@hology/react'
 
 
-function App() {
+function HighScores() {
+  const game = useService(Game)
+  const [bestTime, setBestTime] = useState<number>(0)
+  const [currentTime, setCurrentTime] = useState<number>()
+
+  useEffect(() => {
+    effect(() => {
+      setBestTime(game.bestTime.value)
+      setCurrentTime(game.currentTime.value)
+    })
+  }, [game])
+  
+  return <div style={{position: 'absolute', zIndex: 5, right: '40px', top: '0px'}}>
+    <h4 style={{marginBottom:'0px'}}>Best</h4>
+    <p style={{marginTop:'px'}}>{numberToTime(bestTime)}</p>
+    <h4 style={{marginBottom:'0px'}}>Current</h4>
+    <p style={{marginTop:'0px'}}>{numberToTime(currentTime)}</p>
+  </div>
+}
+
+
+function App() {  
+  return (
+    <HologyScene gameClass={Game} sceneName='christmas' dataDir='data' shaders={shaders} actors={actors}>
+        <HighScores></HighScores>
+
+        <a href="https://hology.app" target='_blank'>
+          <img style={{position: 'absolute', zIndex: 5, left: '40px', bottom: '0px'}} width="180" src="madewithhology.png" alt="made with hology engine" />
+        </a>
+        <img style={{position: 'absolute', zIndex: 5, right: '40px', bottom: '0px'}} width="180" src="movement.png" alt="movement keys" />
+    </HologyScene>
+    
+  );
+}
+
+
+function AppOld() {
   const containerRef = createRef<HTMLDivElement>()
   const [bestTime, setBestTime] = useState<number>(0)
   const [currentTime, setCurrentTime] = useState<number>()
@@ -57,4 +94,3 @@ function numberToTime(num: number) {
 }
 
 export default App;
-
